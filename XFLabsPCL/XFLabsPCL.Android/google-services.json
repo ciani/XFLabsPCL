@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "695384364209",
+    "firebase_url": "https://xflabsapp.firebaseio.com",
+    "project_id": "xflabsapp",
+    "storage_bucket": "xflabsapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695384364209:android:6a33b7d0ae9006bc",
+        "android_client_info": {
+          "package_name": "com.xflabs.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695384364209-juh6877r8nplv0sh4i6folenudb8rukc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyj2hELmPU-WiSBF7j4dyS_d3PNakloKc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
