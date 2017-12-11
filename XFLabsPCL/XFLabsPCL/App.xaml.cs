@@ -13,7 +13,7 @@ namespace XFLabsPCL
         {
             InitializeComponent();
 
-            MainPage = new Features.Login.LoginView();
+            MainPage = new NavigationPage(new Features.Login.LoginView());
         }
 
         protected override void OnStart()

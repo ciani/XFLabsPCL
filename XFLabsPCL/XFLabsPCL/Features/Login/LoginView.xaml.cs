@@ -11,6 +11,7 @@
         public LoginView()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = new LoginViewModel();
             this.WhenActivated(d =>
             {

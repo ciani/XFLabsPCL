@@ -3,9 +3,12 @@
     using ReactiveUI;
     using System;
     using System.Threading.Tasks;
+    using Xamarin.Forms;
+    using XFLabsPCL.Services;
 
     public class LoginViewModel : ReactiveObject
     {
+        private readonly INavigationService navigationService;
         private string user;
         private string pass;
         private ReactiveCommand doLoginAsync;
@@ -17,6 +20,7 @@
         /// </summary>
         public LoginViewModel()
         {
+            navigationService = DependencyService.Get<INavigationService>();
             doLoginAsync = ReactiveCommand.CreateFromTask(DoLoginAsync, CanExecuteLogin());
             doLoginAsync.IsExecuting.ToProperty(this, vm => vm.IsLoading, out isLoading);
 
@@ -42,6 +46,7 @@
         private async Task DoLoginAsync()
         {
             await Task.Delay(2000);
+            await navigationService.NavigateToMainViewAsync();
         }
 
 
