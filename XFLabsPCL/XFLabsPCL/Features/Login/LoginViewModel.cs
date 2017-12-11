@@ -46,7 +46,7 @@
         private async Task DoLoginAsync()
         {
             await Task.Delay(2000);
-            await navigationService.NavigateToMainViewAsync();
+            await navigationService.NavigateToColorListAsync();
         }
 
 

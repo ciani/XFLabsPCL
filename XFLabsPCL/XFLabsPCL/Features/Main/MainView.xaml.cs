@@ -1,20 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace XFLabsPCL.Features.Main
+﻿namespace XFLabsPCL.Features.Main
 {
+    using ReactiveUI;
+    using Xamarin.Forms.Xaml;
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainView : ContentPage
+    public partial class MainView
     {
         public MainView()
         {
             InitializeComponent();
+            BindingContext = new MainViewModel();
+            this.WhenActivated(d =>
+            {
+                d(this.Bind(ViewModel, vm => vm.IsLoading
+                                     , v => v.ActOcupado.IsVisible));
+
+                d(this.Bind(ViewModel, vm => vm.Weather
+                                     , v => v.LblWeatherFromAPI.Text));
+
+                d(this.BindCommand(ViewModel, vm => vm.GetWeatherCommand
+                                            , v => v.BtnGetWeather));
+            });
         }
     }
 }

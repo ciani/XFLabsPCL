@@ -11,6 +11,12 @@
         Task NavigateToMainViewAsync();
 
         /// <summary>
+        /// Navigates to color list asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        Task NavigateToColorListAsync();
+
+        /// <summary>
         /// Pops the asynchronous.
         /// </summary>
         /// <returns></returns>

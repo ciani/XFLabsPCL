@@ -1,12 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<reactive:ReactiveContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:reactive="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+             xmlns:main="clr-namespace:XFLabsPCL.Features.Main"
+             x:TypeArguments="main:MainViewModel"
              x:Class="XFLabsPCL.Features.Main.MainView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="20" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="LblWeatherToday" AutomationId="LblWeatherToday" 
+                       Text="Estamos a:"
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+
+                <Label x:Name="LblWeatherFromAPI" AutomationId="LblWeatherFromAPI"
+                       FontSize="Large"
+                       FontAttributes="Bold"/>
+            </StackLayout>
+            <ActivityIndicator x:Name="ActOcupado" IsRunning="True"/>
+            <Button x:Name="BtnGetWeather" AutomationId="BtnGetWeather"
+                    VerticalOptions="End"
+                    Text="¿Que tiempo hay?"/>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</reactive:ReactiveContentPage>
