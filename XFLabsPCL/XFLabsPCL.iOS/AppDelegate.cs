@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace XFLabsPCL.iOS
 {
@@ -26,6 +27,13 @@ namespace XFLabsPCL.iOS
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+        }
+
+        public override void WillTerminate(UIApplication uiApplication)
+        {
+            var storageService = DependencyService.Get<XFLabsPCL.Services.IStorageService>();
+            storageService.Shutdown();
+
         }
     }
 }

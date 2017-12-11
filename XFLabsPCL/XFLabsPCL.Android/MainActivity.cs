@@ -1,14 +1,10 @@
-﻿using System;
-
-using Android.App;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
-
-namespace XFLabsPCL.Droid
+﻿namespace XFLabsPCL.Droid
 {
+    using Android.App;
+    using Android.Content.PM;
+    using Android.OS;
+    using Xamarin.Forms;
+
     [Activity(Label = "XFLabsPCL", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -21,6 +17,13 @@ namespace XFLabsPCL.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            var storageService = DependencyService.Get<XFLabsPCL.Services.IStorageService>();
+            storageService.Shutdown();
         }
     }
 }

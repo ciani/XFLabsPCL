@@ -153,7 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XFLabsPCL\XFLabsPCL.csproj">
-      <Project>{afff1380-02fb-4926-a9f4-5a6bb3c3304e}</Project>
+      <Project>{7c394715-403c-42aa-9cf5-6bed4734166d}</Project>
       <Name>XFLabsPCL</Name>
     </ProjectReference>
   </ItemGroup>
