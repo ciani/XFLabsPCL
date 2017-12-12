@@ -28,14 +28,14 @@
 
         public string User
         {
-            get => user;
-            set => this.RaiseAndSetIfChanged(ref user, value);
+            get { return user; }
+            set { this.RaiseAndSetIfChanged(ref user, value); }
         }
 
         public string Pass
         {
-            get => pass;
-            set => this.RaiseAndSetIfChanged(ref pass, value);
+            get { return pass; }
+            set { this.RaiseAndSetIfChanged(ref pass, value); }
         }
 
         public bool IsLoading => isLoading?.Value ?? false;
@@ -45,7 +45,6 @@
 
         private async Task DoLoginAsync()
         {
-            await Task.Delay(2000);
             await navigationService.NavigateToColorListAsync();
         }
 

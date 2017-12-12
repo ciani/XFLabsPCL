@@ -22,8 +22,8 @@
 
         public string Weather
         {
-            get => weather;
-            set => this.RaiseAndSetIfChanged(ref weather, value);
+            get { return weather; }
+            set { this.RaiseAndSetIfChanged(ref weather, value); }
         }
 
         public ReactiveCommand GetWeatherCommand => getWeatherCommand;
