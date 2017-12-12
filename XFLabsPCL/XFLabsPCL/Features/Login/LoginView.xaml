@@ -3,6 +3,7 @@
                               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                               xmlns:reactive="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
                               xmlns:login="clr-namespace:XFLabsPCL.Features.Login"
+                              xmlns:controls="clr-namespace:XFLabsPCL.Controls"
                               x:TypeArguments="login:LoginViewModel"
                               x:Class="XFLabsPCL.Features.Login.LoginView">
     <ContentPage.Content>
@@ -20,10 +21,10 @@
 
 
             <ActivityIndicator x:Name="ActIsLoading" IsRunning="True" IsVisible="False"/>
-            <Button x:Name="BtnLogin" AutomationId="BtnLogin" Text="Login" Margin="0,20,0,0" VerticalOptions="EndAndExpand" 
+            <controls:CustomButtonControl x:Name="BtnLogin" AutomationId="BtnLogin" Text="Login" Margin="0,20,0,0" VerticalOptions="EndAndExpand" 
                     HorizontalOptions="Center" Style="{StaticResource PositiveButtonStyle}">
 
-            </Button>
+            </controls:CustomButtonControl>
         </StackLayout>
     </ContentPage.Content>
 </reactive:ReactiveContentPage>
