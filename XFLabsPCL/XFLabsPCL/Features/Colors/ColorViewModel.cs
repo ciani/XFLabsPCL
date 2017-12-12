@@ -1,5 +1,6 @@
 ﻿namespace XFLabsPCL.Features.Colors
 {
+    using System;
     using ReactiveUI;
     using Refit;
     using System.Net.Http;
@@ -7,10 +8,12 @@
     using Xamarin.Forms;
     using XFLabsPCL.Models;
     using XFLabsPCL.Services;
+    using System.Windows.Input;
 
     public class ColorViewModel : ReactiveObject
     {
         private readonly IStorageService storageService;
+        private readonly INetworkConnectionCheckerService networkService;
         private ReactiveCommand getColorsCommand;
         private ObservableAsPropertyHelper<bool> isLoading;
         private ReactiveList<ColorModel> colorList = new ReactiveList<ColorModel>();
@@ -19,6 +22,13 @@
         public ColorViewModel()
         {
             storageService = DependencyService.Get<IStorageService>();
+            networkService = DependencyService.Get<INetworkConnectionCheckerService>();
+            networkService.Check();
+            this.WhenAnyValue(v => v.networkService.IsConnected).Subscribe(async isConnected => 
+            {
+                if (isConnected && !IsLoading)
+                    await GetColorsAsync();
+            });
             getColorsCommand = ReactiveCommand.CreateFromTask(GetColorsAsync);
             getColorsCommand.IsExecuting.ToProperty(this, vm => vm.IsLoading, out isLoading);
         }
@@ -54,11 +64,18 @@
             var api = RestService.For<IColorWebService>("http://reqres.in", settings);
             var response = await storageService.GetOrFetchObjectAsync("colors", async () =>
             {
-                var itemsResponse = await api.GetColorsAsync();
-                return itemsResponse;
+                try
+                {
+                    var itemsResponse = await api.GetColorsAsync();
+                    return itemsResponse;
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
             });
 
-            if (response.Colors != null)
+            if (response != null && response.Colors != null)
                 ColorList = new ReactiveList<ColorModel>(response.Colors);
         }
     }

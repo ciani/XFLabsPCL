@@ -37,7 +37,8 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <AndroidSupportedAbis>x86_64</AndroidSupportedAbis>
+    <AndroidSupportedAbis>
+    </AndroidSupportedAbis>
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -220,6 +221,9 @@
     <Compile Include="Services\FirebaseService\FirebaseNotificationService.cs" />
     <Compile Include="Services\FirebaseService\FirebaseRegistrationService.cs" />
     <Compile Include="Services\NativeHttpHandlerService\NativeHttpHandlerService.cs" />
+    <Compile Include="Services\NetworkConnectionCheckerService\NetworkConnectionCheckerService.cs" />
+    <Compile Include="Services\NetworkConnectionCheckerService\NetworkStatusBroadcastReceiver.cs" />
+    <Compile Include="Services\NetworkConnectionCheckerService\NetworkStatusMonitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
