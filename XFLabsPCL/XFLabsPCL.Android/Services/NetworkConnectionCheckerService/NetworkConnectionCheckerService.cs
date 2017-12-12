@@ -1,13 +1,14 @@
 ﻿[assembly:Xamarin.Forms.Dependency(typeof(XFLabsPCL.Droid.Services.NetworkConnectionCheckerService))]
 namespace XFLabsPCL.Droid.Services
 {
+    using ReactiveUI;
     using System;
     using System.Diagnostics;
     using Xamarin.Forms;
     using XFLabsPCL.Services;
 
 
-    public class NetworkConnectionCheckerService : INetworkConnectionCheckerService
+    public class NetworkConnectionCheckerService : ReactiveObject, INetworkConnectionCheckerService
     {
         private NetworkStatusMonitor networkStatusMonitor;
         private bool isConnected;
@@ -29,7 +30,10 @@ namespace XFLabsPCL.Droid.Services
         /// <value>
         /// <c>true</c> if this instance is connected; otherwise, <c>false</c>.
         /// </value>
-        public bool IsConnected { get; set; }
+        public bool IsConnected {
+            get { return isConnected; }
+            set { this.RaiseAndSetIfChanged(ref isConnected, value); }
+        }
 
         /// <summary>
         /// Gets the network status monitor.

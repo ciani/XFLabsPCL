@@ -62,7 +62,7 @@
                 return nativeHandler;
             };
             var api = RestService.For<IColorWebService>("http://reqres.in", settings);
-            var response = await storageService.GetOrFetchObjectAsync("colors", async () =>
+            var response = await storageService.GetOrFetchObjectAsync("colores", async () =>
             {
                 try
                 {
