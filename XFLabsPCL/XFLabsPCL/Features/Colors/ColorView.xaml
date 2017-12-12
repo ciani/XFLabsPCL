@@ -6,20 +6,18 @@
              x:TypeArguments="colors:ColorViewModel"
              x:Class="XFLabsPCL.Features.Colors.ColorView">
     <ContentPage.Content>
-        <ListView x:Name="ColorListView" 
-                  HasUnevenRows="true" IsPullToRefreshEnabled="true" CachingStrategy="RecycleElement" 
+        <ListView x:Name="ColorListView" SeparatorVisibility="None" 
+                  HasUnevenRows="true"  CachingStrategy="RecycleElement" 
                   VerticalOptions="FillAndExpand" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Style="{DynamicResource ListItemTextStyle}" 
-                                       Text="{Binding Name}" 
-                                       LineBreakMode="NoWrap" FontSize="16" />
+                            <Label Text="{Binding Name}" 
+                                   LineBreakMode="NoWrap" FontSize="16" />
 
-                            <Label Style="{DynamicResource ListItemDetailTextStyle}"
-                                       Text="{Binding Color}"
-                                       LineBreakMode="NoWrap"  FontSize="13" />
+                            <Label Text="{Binding Color}"
+                                   LineBreakMode="NoWrap"  FontSize="13" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

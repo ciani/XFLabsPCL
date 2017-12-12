@@ -14,7 +14,8 @@
             this.WhenActivated(d => 
             {
                 d(this.OneWayBind(ViewModel, vm => vm.ColorList, v => v.ColorListView.ItemsSource));
-
+                d(this.Bind(ViewModel, vm => vm.IsLoading, v => v.ColorListView.IsRefreshing));
+                d(this.Bind(ViewModel, vm => vm.SelectedColor, v => v.ColorListView.SelectedItem));
 
                 (ViewModel.GetColorsCommand as ICommand).Execute(null);
             });

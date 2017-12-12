@@ -1,13 +1,11 @@
 ﻿namespace XFLabsPCL.Features.Colors
 {
-    using System;
-    using System.Threading.Tasks;
     using ReactiveUI;
     using Refit;
-    using XFLabsPCL.Models;
-    using System.Linq;
-    using Xamarin.Forms;
     using System.Net.Http;
+    using System.Threading.Tasks;
+    using Xamarin.Forms;
+    using XFLabsPCL.Models;
     using XFLabsPCL.Services;
 
     public class ColorViewModel : ReactiveObject
@@ -16,13 +14,19 @@
         private ReactiveCommand getColorsCommand;
         private ObservableAsPropertyHelper<bool> isLoading;
         private ReactiveList<ColorModel> colorList = new ReactiveList<ColorModel>();
+        private ColorModel selectedColor;
 
         public ColorViewModel()
         {
             storageService = DependencyService.Get<IStorageService>();
             getColorsCommand = ReactiveCommand.CreateFromTask(GetColorsAsync);
             getColorsCommand.IsExecuting.ToProperty(this, vm => vm.IsLoading, out isLoading);
+        }
 
+        public ColorModel SelectedColor
+        {
+            get { return selectedColor; }
+            set { this.RaiseAndSetIfChanged(ref selectedColor, value); }
         }
 
         public bool IsLoading => isLoading?.Value ?? false;
@@ -31,8 +35,8 @@
 
         public ReactiveList<ColorModel> ColorList
         {
-            get => colorList;
-            set => this.RaiseAndSetIfChanged(ref colorList, value);
+            get { return colorList; }
+            set { this.RaiseAndSetIfChanged(ref colorList, value); }
         }
 
         private async Task GetColorsAsync()
@@ -48,10 +52,6 @@
                 return nativeHandler;
             };
             var api = RestService.For<IColorWebService>("http://reqres.in", settings);
-            //var response = await api.GetColorsAsync();
-            //if (response != null && response.Colors.Any())
-            //    ColorList = new ReactiveList<ColorModel>(response.Colors);
-
             var response = await storageService.GetOrFetchObjectAsync("colors", async () =>
             {
                 var itemsResponse = await api.GetColorsAsync();
@@ -60,7 +60,6 @@
 
             if (response.Colors != null)
                 ColorList = new ReactiveList<ColorModel>(response.Colors);
-
         }
     }
 }
