@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 using Xamarin.Forms;
 
 namespace XFLabsPCL
 {
+
     public partial class App : Application
     {
         public App()
@@ -18,7 +18,10 @@ namespace XFLabsPCL
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            AppCenter.Start("android=effe6d95-33c5-42d6-8b0b-b9a8be31faf0;" 
+                + "uwp=a69a3dc4-24ff-47bd-8e50-c9559cfe9212;" +
+                   "ios={Your iOS App secret here}",
+                   typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()

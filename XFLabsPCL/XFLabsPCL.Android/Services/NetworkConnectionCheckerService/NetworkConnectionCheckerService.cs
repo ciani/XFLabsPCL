@@ -1,10 +1,9 @@
-﻿[assembly:Xamarin.Forms.Dependency(typeof(XFLabsPCL.Droid.Services.NetworkConnectionCheckerService))]
+﻿[assembly: Xamarin.Forms.Dependency(typeof(XFLabsPCL.Droid.Services.NetworkConnectionCheckerService))]
 namespace XFLabsPCL.Droid.Services
 {
     using ReactiveUI;
     using System;
     using System.Diagnostics;
-    using Xamarin.Forms;
     using XFLabsPCL.Services;
 
 
@@ -79,7 +78,7 @@ namespace XFLabsPCL.Droid.Services
             {
                 try
                 {
-                    MessagingCenter.Send<object>(this, "appisconnected");
+                    Debug.Write("NetworkConnectionChecker.Check");
                 }
                 catch (Exception ex)
                 {
