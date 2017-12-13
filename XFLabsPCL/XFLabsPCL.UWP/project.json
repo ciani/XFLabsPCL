@@ -4,7 +4,8 @@
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "reactiveui-xamforms": "7.4.0",
     "refit": "2.4.1",
-    "Xamarin.Forms": "2.4.0.280"
+    "Xamarin.Forms": "2.4.0.280",
+    "Xamarin.Forms.Maps": "2.5.0.121934"
   },
   "frameworks": {
     "uap10.0.10240": {}

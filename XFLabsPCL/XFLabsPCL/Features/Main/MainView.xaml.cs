@@ -20,6 +20,11 @@
 
                 d(this.BindCommand(ViewModel, vm => vm.GetWeatherCommand
                                             , v => v.BtnGetWeather));
+
+                d(this.Bind(ViewModel, vm => vm.CurrentPosition.Latitude, v => v.LblLatitude.Text));
+                d(this.Bind(ViewModel, vm => vm.CurrentPosition.Longitude, v => v.LblLongitude.Text));
+                d(this.BindCommand(ViewModel, vm => vm.GetGPSPositionCommand
+                                            , v => v.BtnGetPosition));
             });
         }
     }

@@ -17,6 +17,12 @@
         Task NavigateToColorListAsync();
 
         /// <summary>
+        /// Navigates to map asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        Task NavigateToMapAsync();
+
+        /// <summary>
         /// Pops the asynchronous.
         /// </summary>
         /// <returns></returns>

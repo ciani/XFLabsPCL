@@ -21,6 +21,12 @@
             <Button x:Name="BtnGetWeather" AutomationId="BtnGetWeather"
                     VerticalOptions="End"
                     Text="¿Que tiempo hay?"/>
+
+            <Label x:Name="LblLatitude"/>
+            <Label x:Name="LblLongitude"/>
+            <Button x:Name="BtnGetPosition" AutomationId="BtnGetPosition"
+                    VerticalOptions="End"
+                    Text="¿Donde estoy?"/>
         </StackLayout>
     </ContentPage.Content>
 </reactive:ReactiveContentPage>

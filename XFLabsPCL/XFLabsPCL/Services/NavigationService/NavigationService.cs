@@ -5,6 +5,7 @@ namespace XFLabsPCL.Services
     using Xamarin.Forms;
     using XFLabsPCL.Features.Colors;
     using XFLabsPCL.Features.Main;
+    using XFLabsPCL.Features.Map;
 
     public class NavigationService : INavigationService
     {
@@ -27,6 +28,11 @@ namespace XFLabsPCL.Services
         public async Task NavigateToMainViewAsync()
         {
             await navigation.PushAsync(new MainView());
+        }
+
+        public async Task NavigateToMapAsync()
+        {
+            await navigation.PushAsync(new MapView());
         }
 
         /// <summary>

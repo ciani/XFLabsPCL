@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<reactive:ReactiveContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:reactive="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+                              xmlns:map="clr-namespace:XFLabsPCL.Features.Map"
+                              xmlns:xfmaps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+                              x:TypeArguments="map:MapViewModel"
+                              x:Class="XFLabsPCL.Features.Map.MapView">
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        </Grid>
+    </ContentPage.Content>
+</reactive:ReactiveContentPage>
